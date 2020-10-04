@@ -1,0 +1,104 @@
+body,
+ul,
+li,
+p {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-size: 1.2rem;
+  font-family: Arial;
+}
+
+body {
+  margin-bottom: 100px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+h1 {
+  text-align: center; /*alinhamento de texto*/
+  margin-top: 70px; /*margin do topo*/
+}
+
+img {
+  max-width: 100%; /*largura maxima delas*/
+  display: block; /*para ficar fixo*/
+}
+
+.header {
+  background-color: black;
+  display: flex; /*um do lado do outro*/
+  flex-wrap: wrap; /*tela pequena logo fica em cima*/
+  justify-content: space-between; /*espaço entre eles*/
+  align-items: center; /*alinhamento de logo*/
+  padding: 20px;
+}
+
+.menu {
+  display: flex; /*um item do lado do outro*/
+}
+/* espaço de area para clique*/
+.menu li {
+  margin-left: 10px;
+}
+.menu li a {
+  display: block; /*para ficar fixo*/
+  padding: 10px;
+  /*background-color: tomato;*/
+}
+/* fim espaço de area para clique*/
+
+/* CSS FlexBox 1 */
+
+.flex {
+  display: flex; /*um item ao lado do outro*/
+  flex-wrap: wrap; /*quebrar para baixo quando ficar a tela menor*/
+  max-width: 800px; /*max de larg do container flex*/
+  margin: 0 auto; /*para alinhar ao centro quando passar do max-width: 800px;*/
+}
+
+.flex > div {
+  flex: 1 1 200px; /* minimo de 200px de largura*/
+  margin: 10px; /*espaço entre os items*/
+}
+
+/* CSS Grid 1 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /*dividindo 100% em 3 partes*/
+  max-width: 800px; /*max de larg do container grid*/
+  padding: 10px;
+  margin: 0 auto; /*para alinhar ao centro quando passar do max-width: 780px;*/
+  grid-gap: 20px; /*espaço entre os items*/
+}
+
+.grid > div:nth-child(n + 4) {
+  /* nth está aplicando uma mudança depois do 4 item */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /*dividindo 100% em 2 partes*/
+  grid-gap: 10px; /*espaço entre os items*/
+  align-items: center; /*alinhamento de text com img*/
+}
+
+.grid > div.anuncio {
+  grid-column: 1;
+  grid-row: 2 / 5;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid > div:nth-child(n + 4) {
+    display: block;
+  }
+  .grid > div.anuncio {
+    grid-column: auto;
+    grid-row: auto;
+    order: -1;
+  }
+}
